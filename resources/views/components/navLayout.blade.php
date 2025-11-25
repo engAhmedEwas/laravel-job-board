@@ -32,12 +32,13 @@
                             <div class="ml-10 flex items-baseline space-x-4">
                                 <!-- Current: "bg-gray-900 dark:bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
                                 <x-nav-link :active="request()->is('/')" href="/">Home Page</x-nav-link>
-                                <x-nav-link :active="request()->is('about')" href="/about">About Bage</x-nav-link>
+                                <x-nav-link :active="request()->is('about')" href="/about">About Page</x-nav-link>
                                 <x-nav-link :active="request()->is('contactUs')" href="/contactUs">Contact Us Page</x-nav-link>
+                                <x-nav-link :active="request()->is('blog')" href="/blog">blog Page</x-nav-link>
                             </div>
                         </div>
                     </div>
-                    <div class="hidden md:block">
+                    {{-- <div class="hidden md:block">
                         <div class="ml-4 flex items-center md:ml-6">
                             <button type="button"
                                 class="relative rounded-full p-1 text-gray-400 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
@@ -52,7 +53,7 @@
                             </button>
 
                             <!-- Profile dropdown -->
-                            <el-dropdown class="relative ml-3">
+                            {{-- <el-dropdown class="relative ml-3">
                                 <button
                                     class="relative flex max-w-xs items-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
                                     <span class="absolute -inset-1.5"></span>
@@ -73,10 +74,10 @@
                                         class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden dark:text-gray-300 dark:focus:bg-white/5">Sign
                                         out</a>
                                 </el-menu>
-                            </el-dropdown>
+                            </el-dropdown> --
                         </div>
-                    </div>
-                    <div class="-mr-2 flex md:hidden">
+                    </div> --}}
+                    {{-- <div class="-mr-2 flex md:hidden">
                         <!-- Mobile menu button -->
                         <button type="button" command="--toggle" commandfor="mobile-menu"
                             class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
@@ -92,11 +93,11 @@
                                 <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </button>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
 
-            <el-disclosure id="mobile-menu" hidden class="block md:hidden">
+            {{-- <el-disclosure id="mobile-menu" hidden class="block md:hidden">
                 <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
                     <!-- Current: "bg-gray-900 dark:bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
                     <a href="/" aria-current="page"
@@ -137,24 +138,20 @@
                             class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-white/5 hover:text-white">Settings</a>
                         <a href="#"
                             class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-white/5 hover:text-white">Sign
-                            out</a> --}}
+                            out</a> --
                     </div>
                 </div>
-            </el-disclosure>
+            </el-disclosure> --}}
         </nav>
 
         @if (isset($title))
-            
-        <header
-            class="relative bg-white shadow-sm dark:bg-gray-800 dark:shadow-none dark:after:pointer-events-none dark:after:absolute dark:after:inset-x-0 dark:after:inset-y-0 dark:after:border-y dark:after:border-white/10">
-            <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                <h1 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">{{$title}}</h1>
-            </div>
-        </header>
-            
+            <header
+                class="relative bg-white shadow-sm dark:bg-gray-800 dark:shadow-none dark:after:pointer-events-none dark:after:absolute dark:after:inset-x-0 dark:after:inset-y-0 dark:after:border-y dark:after:border-white/10">
+                <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                    <h1 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">{{$title}}</h1>
+                </div>
+            </header>
         @endif
-
-        
         <main>
             <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
                 {{ $slot }}
@@ -162,7 +159,7 @@
         </main>
     </div>
 
-    
+
 
 </body>
 
