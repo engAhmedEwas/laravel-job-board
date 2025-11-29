@@ -3,17 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = Post::all();
-        return view("post.index", ["posts"=> $data, "pageTitle" => "blog"]);
+        $data = Tag::all();
+        return view("tag.index", ["tags"=> $data, "pageTitle" => "Tags"]);
     }
 
     /**
@@ -21,7 +22,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view("post.create", ["pageTitle" => "create page"]);
+        //
     }
 
     /**
@@ -29,7 +30,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        // @TODO: this well created in Forms Sections
+        //
     }
 
     /**
@@ -37,8 +38,7 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        $post = Post::findOrFail($id);
-        return view("post.show", ["post"=> $post, "pageTitle" => $post->title]);
+        //
     }
 
     /**
@@ -46,7 +46,7 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-        return view("post.edit", ["pageTitle" => "edit page"]);
+        //
     }
 
     /**
@@ -54,7 +54,7 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // @TODO: this well created in Forms Sections
+        //
     }
 
     /**
@@ -63,5 +63,18 @@ class PostController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    function testManyToMany(){
+        $post1 = Post::find(1);
+        $post2 = Post::find(2);
+
+        $post1->tags()->attach([2, 1, 3]);
+        $post2->tags()->attach([2, 4, 5]);
+
+        return response()->json([
+            'Post1' => $post1->tags,
+            'Post2' => $post2->tags,
+        ]);
     }
 }
