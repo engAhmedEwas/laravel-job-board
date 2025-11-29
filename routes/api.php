@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\TagController;
+use App\Http\Controllers\API\PostApiController;
+
 use Illuminate\Support\Facades\Route;
 
 // Route::post('/blog', [PostController::class,'create']);
@@ -13,3 +12,7 @@ use Illuminate\Support\Facades\Route;
 // Route::post('/comments', [CommentController::class,'create']);
 
 // Route::post('/tags', [TagController::class,'create']);
+
+Route::apiResource("post", PostApiController::class);
+// Route::apiResource("comments", CommentApiController::class);
+// Route::apiResource("tags", TagApiController::class);
