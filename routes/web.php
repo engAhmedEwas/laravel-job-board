@@ -10,7 +10,7 @@ use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', IndexController::class);
-Route::get('/job', JobController::class);
+Route::get('/job', [JobController::class, "index"]);
 Route::get('/about', AboutController::class);
 Route::get('/contactUs', ContactUsController::class);
 
